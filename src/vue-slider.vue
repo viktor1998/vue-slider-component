@@ -42,6 +42,10 @@ export default {
 		}
 	},
 	props: {
+		name: {
+        	type: String,
+        	default: 'name'
+      	},
 		width: {
 			type: [Number, String],
 			default: 'auto'
@@ -424,7 +428,7 @@ export default {
 			if (this.isRange) {
 				if (this.isDiff(this.currentValue[this.currentSlider], val)) {
 					this.currentValue.splice(this.currentSlider, 1, val)
-					this.$emit('callback', this.val)
+					this.$emit('callback', this.val, this.name)
 				}
 			}
 			else if (this.isDiff(this.currentValue, val)) {

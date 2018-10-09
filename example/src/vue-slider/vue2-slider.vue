@@ -157,6 +157,10 @@
   export default {
     name: 'VueSliderComponent',
     props: {
+      name: {
+        type: String,
+        default: 'name'
+      },
       width: {
         type: [Number, String],
         default: 'auto'
@@ -969,7 +973,7 @@
         let val = this.isRange ? this.val.concat() : this.val
         this.$emit('input', val)
         this.keydownFlag && this.$emit('on-keypress', val)
-        noCb || this.$emit('callback', val)
+        noCb || this.$emit('callback', val, this.name)
       },
       getValue () {
         return this.val
